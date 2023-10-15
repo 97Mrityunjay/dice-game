@@ -130,23 +130,35 @@ holdBtn.addEventListener("click", function(){
        finalScoreOne.innerHTML = Number(finalScoreOne.innerHTML)+Number(currentScore[0].innerHTML);
        currentScore[0].innerHTML = `0`;
        players = 2;
+       if(Number(finalScoreOne.innerHTML)>20)
+       {
+           playerOne.style.backgroundColor = `#414141`;
+           diceImg.style.display = `none`;
+       }
+       else
+       {
+         playerTwo.style.backgroundColor = `#DAAEBC`;
+         playerOne.style.backgroundColor = `#B77A9A`
+       }
 
     }
     else if(players===2){
         finalScoreTwo.innerHTML = Number(finalScoreTwo.innerHTML)+Number(currentScore[1].innerHTML);
         currentScore[1].innerHTML = `0`;
         players = 1;
+        if(Number(finalScoreTwo.innerHTML)>20)
+        {
+         playerTwo.style.backgroundColor = `#414141`;
+         diceImg.style.display = `none`;
+        }
+        else{
+        playerOne.style.backgroundColor = `#DAAEBC`;
+        playerTwo.style.backgroundColor = `#B77A9A`;
+        }
+        
     }
-    if(Number(finalScoreOne.innerHTML)>20)
-    {
-        playerOne.style.backgroundColor = `#414141`;
-        diceImg.style.display = `none`;
-    }
-    else if(Number(finalScoreTwo.innerHTML)>20)
-    {
-        playerTwo.style.backgroundColor = `#414141`;
-        diceImg.style.display = `none`;
-    }
+   
+    
 })
 
 
@@ -158,4 +170,5 @@ resetGame.addEventListener("click", ()=>{
     playerOne.style.backgroundColor = `#DAAEBC`;
     playerTwo.style.backgroundColor = `#B77A9A`;
     diceImg.style.display = "none";
+    players = 1;
 })
